@@ -1,0 +1,144 @@
+main{
+    min-width: 300px;min-height: calc(100vh - 235px);
+}
+
+.back-img{
+    width: 100%; height: 100%; min-height: calc(100vh - 235px);
+    background-size: 100%; background-image: url('../images/profile_bak.jpg'); background-size: cover; background-position:center 20%;
+    opacity: 0.3;
+    z-index: -1; top: 0; 
+}
+
+
+.profile-main{
+    padding: 50px 10%;
+}
+
+.user-picture{
+    width: 40%;
+    text-align: center;
+    background-color: transparent;
+}
+
+.user-picture img{
+    width: 70%; max-width: 230px; 
+}
+
+#user_picture_bak{
+    width: 70%; max-width: 240px;
+    opacity: 0.5;
+}
+
+.user-info{
+    width: 60%; min-height: 100px; color: #3f3a3a;
+}
+
+.logout{
+    width: 100%;
+}
+
+.btn_defulat{
+    font-size: 1rem;
+}
+
+.user-name{
+    font-size: 1.7rem; font-weight: bolder; line-height: 4.5rem; 
+}
+
+.user-id, .user-email{
+    letter-spacing: 1px; line-height: 1.8rem;
+}
+
+
+.profile-main .ani-1{
+    transition: opacity 2s linear;
+    animation: ani1 1s linear;
+    animation-fill-mode: forwards;
+    animation-delay: 2s; 
+    opacity: 0;
+}
+
+.profile-main .ani-2{
+    transition: opacity 2s linear,width 2s linear;
+    animation: ani2 1s linear;
+    animation-fill-mode: forwards;
+    animation-delay: 3s; 
+    opacity: 0;
+}
+
+.profile-main .ani-3{
+    transition: opacity 2s linear;
+    animation: ani3 2s linear;
+    animation-fill-mode: forwards;
+    animation-delay: 4s; 
+    opacity: 0;
+}
+
+
+@keyframes ani1 {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes ani2 {
+    from{
+       width: 0%;opacity: 0;
+    }
+    to{
+       width: 100%;opacity: 1;
+    }
+}
+
+@keyframes ani3{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+/*----------------------------------*/
+/*            Media Query           */
+/*----------------------------------*/
+
+@media screen and (max-width: 1200px) {
+    main{
+        top: 50px;
+        min-height: 120vh;
+    }
+}
+
+/* 800 px */
+@media screen and (max-width: 800px) {
+    .user-picture,
+    .user-info{
+        width:100%;
+    }
+
+    .user-info{
+        text-align: center;
+        padding: 20px 0px;
+    }
+
+    .btn_defulat{
+        width:100%;
+    }
+
+    .btn_defulat{
+        font-size: .875rem;
+    }
+}
+
+/* 600 px */
+@media screen and (max-width: 600px) {
+
+    main{
+        min-height: 150vh;
+    }
+}

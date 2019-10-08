@@ -1,0 +1,274 @@
+.introduction-div{
+    height: 500px;
+    background-color: rgb(215, 218, 218);
+    position: relative;
+    overflow: hidden;
+}
+
+.introduction-img{
+    width: 100%; height: 100%;
+    position:absolute; 
+    background-size: cover;
+    background-position: center center;
+    
+    top: 0px; left: 100%;
+    transition:left 1s;
+}
+
+.introduction-img:first-child
+{
+    left:0px;
+} 
+
+.introduction-div > .in{
+    animation: img-in 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.introduction-div > .out{
+    animation: img-out 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes img-in
+{
+  0%
+  {
+    left: 100%;
+  }
+  100%
+  {
+    left: 0%;
+  }
+}
+
+@keyframes img-out
+{
+  0%
+  {
+    left: 0%;
+  }
+  100%
+  {
+    left: -100%;
+  }
+}
+
+.introduction-box{
+    position: absolute;
+    color: #070707;
+    line-height: 3.5625rem;
+
+    top: 25%;
+    left: 22%;
+    transition:left 1s;
+}
+
+.introduction-div > .introduction-box ~ .introduction-box {
+    left: 100%;
+}
+
+.introduction-div > .box-in{
+    animation: box-in 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.introduction-div > .box-out{
+    animation: box-out 0.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes box-in
+{
+  0%
+  {
+    left: 100%;
+  }
+  100%
+  {
+    left: 22%;
+  }
+}
+
+@keyframes box-out
+{
+  0%
+  {
+    left: 22%;
+  }
+  100%
+  {
+    left: -100%;
+  }
+}
+
+.introduction-box .title{
+    font-size: 1.875rem;
+    font-weight: 300;
+    text-shadow: 0 0 0.1em #fff;
+    
+}
+
+.introduction-box .desc{
+    font-size: 1.25rem;
+    font-weight: 300;
+    text-shadow: 0 0 0.1em #fff;
+}
+
+.introduction-dot{
+    display: flex;
+    justify-content:center;
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    z-index: 10;
+}
+
+.introduction-dot > .dot{
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 99em;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+.introduction-dot > .dot:hover,
+.introduction-dot > .current{
+    background-color: #c49871;
+}
+
+
+/* product */
+.product-div{
+    padding: 60px 0;
+}
+
+.product-box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.product-box .product-item{
+    width: 360px;
+    margin:20px;
+    font-size: 1.25rem;
+    color:#3f3a3a;
+    letter-spacing: 4px;
+    position: relative;
+    cursor: pointer;
+}
+
+.product-box .product-item .product-img{
+    background-color: rgb(231,231,239);
+    width: 360px;
+    margin: 10px 0;
+}
+
+.product-box .product-item .product-name,
+.product-box .product-item .product-price{
+    margin-bottom: 10px;
+}
+
+.product-box .product-item .product-color{
+    padding: 20px 0;
+}
+
+.product-box .product-item .product-color .color-block{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    border: solid 1px #e9e9e9;
+    cursor: pointer;
+}
+
+.product-box .product-item .new-product{
+    background-color: rgb(182,134,94);
+    border-radius: 999em;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 64px;
+    text-align: center;
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 30px;
+    right: 20px;
+}
+
+/* 1200 px */
+@media screen and (max-width: 1200px) {
+
+  /* Main */
+    .introduction-div{
+        height: 40vh;
+        min-height: 185px;
+    }
+    
+    .introduction-box{
+        line-height: 30px;
+    }
+    
+    .introduction-box .title{
+        font-size: 1rem;
+        font-weight: 300;
+        
+    }
+    
+    .introduction-box .desc{
+        font-size: .75rem;
+        font-weight: 300;
+    }
+
+    /* product */
+    .product-div{
+        padding: 5%;
+    }
+
+    .product-box{
+        justify-content: space-between;
+    }
+
+    .product-box .product-item{
+        width: calc(50% - 2%);
+        margin:3px 1%;
+        font-size: .875rem;
+        color:#3f3a3a;
+        letter-spacing: 2.4px;
+        position: relative;
+    }
+
+
+    .product-box .product-item .product-img{
+        background-color: rgb(231,231,239);
+        width: 100%;
+        margin: 10px 0 0 0;
+    }
+
+    .product-box .product-item .product-color{
+        padding: 8px 0;
+    }
+    
+    .product-box .product-item .product-color .color-block{
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 6px;
+    }
+
+    .product-box .product-item .product-name,
+    .product-box .product-item .product-price{
+        margin-bottom: 8px;
+    }
+
+    .product-box .product-item .new-product{
+        font-size: .75rem;
+        line-height: 36px;
+        width: 36px;
+        height: 36px;
+        top: 10%;
+        right: 6%;
+    }
+}

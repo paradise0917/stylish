@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144846644-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-144846644-1');
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Stylish - 購物車</title>
+        <link rel="icon" href="style/images/logo_browser.png">
+        <link rel="stylesheet" type="text/css" href="style/css/common.css"/>
+        <link rel="stylesheet" type="text/css" href="style/css/cart.css"/>
+    </head>
+    <body>
+        <div id="mask" class="mask ishidden"></div>
+        <div id="loading" class="browser-screen-loading-content ishidden">
+            <div class="loading-dots">
+                <i></i>
+                <i></i>
+                <i></i>
+                <i></i>
+            </div>
+        </div>
+        <div id="message_box" class="message-box bk-white fixed flex flex-flow-col ishidden">
+        </div>
+        <form onsubmit="SearchProduct();return false;">
+            <header>
+                <nav class="nav-style bk-white">
+                    <div class="nav-title">
+                        <img src="style/images/logo.png" class="logo pointer" onclick="RedirectPage('category' ,'all');">
+                    </div>
+                    <!-- Mobile Use -->
+                    <div id="search_icon_find" class="nav-search-icon-mobile nav-icon-find pointer" onclick="DisplaySearchBar()"></div>
+                    <div id="search_icon_close" class="nav-search-icon-mobile nav-icon-close pointer ishidden" onclick="CloseSearchBar()"></div>
+                    <div class="nav-menu">
+                        <ul>
+                            <li class="link"><a href="#" name="women" class="product-type-link" onclick="RedirectPage('category' ,'women')">女裝</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#" name="men" class="product-type-link" onclick="RedirectPage('category' ,'men')">男裝</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#" name="accessories" class="product-type-link" onclick="RedirectPage('category' ,'accessories')">配件</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-config">
+                        <div class="nav-search">
+                            <input id="search_input_desktop" type="text" class="nav-search-input">
+                            <div id="search_delete_desktop" class="nav-delete-icon pointer ishidden" onclick="ClearInput('search_input_desktop')">&times;</div>
+                            <img type="submit" class="nav-search-icon pointer transition-bigger" src="style/images/search.png" onclick="SearchProduct()">
+                        </div>
+                        <div class="nav-cart pointer transition-bigger" onclick="RedirectPage('cart')">
+                            <span id="shopping_car_counts_desktop" name="cart-counts">0</span>
+                        </div>
+                        <div class="nav-account pointer transition-bigger" onclick="RedirectProfilePage()"></div>
+                    </div>
+                </nav>
+                <div class="nav-mobile-menu">
+                    <ul>
+                        <li class="link"><a href="#" name="women" class="product-type-link" onclick="RedirectPage('category' ,'women')">女裝</a></li>
+                        <li class="separate">|</li>
+                        <li class="link"><a href="#" name="men" class="product-type-link" onclick="RedirectPage('category' ,'men')">男裝</a></li>
+                        <li class="separate">|</li>
+                        <li class="link"><a href="#" name="accessories" class="product-type-link" onclick="RedirectPage('category' ,'accessories')">配件</a></li>
+                    </ul>
+                </div>
+                <div class="nav-mobile-config">
+                    <ul>
+                        <li class="link transition-bigger">
+                            <a href="cart.html" class="nav-cart-mobile">
+                                <img src="style/images/cart-mobile.png" alt="cart"/>
+                                <span id="shopping_car_counts_mobile" name="cart-counts" class="nav-cart-counts-mobile">0</span>
+                                購物車</a>
+                        </li>
+                        <li class="separate">|</li>
+                        <li class="link pointer transition-bigger" onclick="RedirectProfilePage()">
+                            <a href="#">
+                                <img src="style/images/member-mobile.png" alt="member"/>
+                                會員</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="searchbar_mobile" class="nav-search-bar-mobile ishidden">
+                    <input id="search_input_mobile" type="text" class="nav-search-input-mobile">
+                    <input type="submit" class="nav-search-btn-mobile pointer" value="GO" onclick="SearchProduct()">
+                </div>
+                <div class="nav-bottom-line"></div>
+            </header>
+            <main>
+                <div class="cart-div">
+                    <div class="wrapper">
+                        <div class="title-block-desktop">
+                            <span id="cart_title" class="cart">購物車</span>
+                            <div class="title-other">
+                                <span class="counts">數量</span>
+                                <span class="price">單價</span>
+                                <span class="total-price">小計</span>
+                            </div>
+                            <span class="space-title"></span>
+                        </div>
+                        <div id="cart_item_block" class="item-block">
+                        </div>
+                        <div class="delivery-block">
+                            <div class="distribution-country">
+                                <span class="title">配送國家</span>
+                                <select id="shipping">
+                                    <option value="60">台灣及離島</option>
+                                </select>
+                            </div>
+                            <div class="delivery-method">
+                                <span class="title">付款方式</span>
+                                <select id="payment">
+                                    <option value="credit_card">信用卡付款</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="remind-block">
+                            ※ 提醒您：<br/>
+                            ● 請填寫正確收件人資訊，避免包裹配送不達<br/>
+                            ● 請填寫正確收件人姓名 ( 與證件相符 )，避免無法領取<br/>
+                        </div>
+                        <div class="receiving-block">
+                            <div class="block-title">收件資料</div>
+                            <div class="block-line"></div>
+                            <div class="receiving-item">
+                                <span class="title">收件人姓名</span>
+                                <input id="receive_name" type="text">
+                            </div>
+                            <div class="receiving-item">
+                                <span class="title">Email</span>
+                                <input id="receive_mail" type="email">
+                            </div>
+                            <div class="receiving-item">
+                                <span class="title">手機號碼</span>
+                                <input id="phone_number" type="text" maxlength="10" onkeydown="CheckKeyCodeNumber()" onkeyup="InputEffects('phone_number')">
+                            </div>
+                            <div class="receiving-item">
+                                <span class="title">收件地址</span>
+                                <input id="receive_address" type="text">
+                            </div>
+                            <div class="receiving-item receiving-time-block">
+                                <span class="title">配送時間</span>
+                                <div><input type="radio" name="receiving-time" value="morning" ><span>08:00 - 12:00</span></div>
+                                <div><input type="radio" name="receiving-time" value="afternoon"><span>14:00 - 18:00</span></div>
+                                <div><input type="radio" name="receiving-time" value="anytime" checked="checked" ><span>不指定</span></div>
+                            </div>
+                        </div>
+                        <div id="tappay" class="payment-block">
+                            <div class="block-title">付款資料</div>
+                            <div class="block-line"></div>
+                            <div class="payment-item">
+                                <span class="title">信用卡號碼</span>
+                                <div class="tpfield card_number" id="card-number"></div>
+                                <div id="credit_img" class="credit-img"></div>
+                            </div>
+                            <div class="payment-item">
+                                <span class="title">有效期限</span>
+                                <div class="tpfield" id="card-expiration-date"></div>
+                            </div>
+                            <div class="payment-item">
+                                <span class="title">安全碼</span>
+                                <div class="tpfield" id="card-ccv"></div>
+                            </div>
+                        </div>
+
+                        <div class="block-line"></div>
+                        <div class="total-price-block">
+                            <div class="price">
+                                <div class="line">
+                                    <div class="title">總金額</div>
+                                    <div>
+                                        <span class="title">NT. </span>
+                                        <span id="price_total" class="value">0</span>
+                                    </div>
+                                </div>
+                                <div class="line">
+                                    <div class="title">運費</div>
+                                    <div>
+                                        <span class="title">NT. </span>
+                                        <span id="price_freight" class="value">60</span>
+                                    </div>
+                                </div>
+                                <div class="block-line"></div>
+                                <div class="line">
+                                    <div class="title">應付金額</div>
+                                    <div>
+                                        <span class="title">NT. </span>
+                                        <span id="price_final" class="value">60</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <input id="input_pay" class="input-pay pointer" type="button" value="確認付款" onclick="CheckSubmitStatus()">
+                            <!--<button id="input_pay" class="input-pay pointer" onclick="CheckSubmitStatus()">確認付款</button>-->
+                        </div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div class="wrapper footer-style">
+                    <div class="footer-menu">
+                        <ul>
+                            <li class="link"><a href="#">關於 Stylelish</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#">服務條款</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#">隱私政策</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#">聯絡我們</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-icongroup">
+                        <img alt="line-img" src="style/images/line.png">
+                        <img alt="twitter-img" src="style/images/twitter.png">
+                        <img alt="facebook-img" src="style/images/facebook.png">
+                    </div>
+                    <div class="footer-copyright">
+                        <span>&copy; 2019 All rights reserved.</span>
+                    </div>
+                </div>
+            </footer>
+        </form>
+    </body>
+</html>
+<script src="https://js.tappaysdk.com/tpdirect/v5.1.0"></script>
+<script type="text/javascript" src="js/ElementTool.js"></script>
+<script type="text/javascript" src="js/Common.js"></script>
+<script type="text/javascript" src="js/Cart.js"></script>
+

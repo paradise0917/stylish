@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144846644-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-144846644-1');
+        </script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Stylish</title>
+        <link rel="icon" href="style/images/logo_browser.png">
+        <link rel="stylesheet" type="text/css" href="style/css/common.css"/>
+        <link rel="stylesheet" type="text/css" href="style/css/index.css"/>
+    </head>
+    <body>
+        <form onsubmit="SearchProduct();return false;">
+            <header>
+                <nav class="nav-style bk-white">
+                    <div class="nav-title">
+                        <img src="style/images/logo.png" class="logo pointer" onclick="RedirectPage('category' ,'all');">
+                    </div>
+                    <!-- Mobile Use -->
+                    <div id="search_icon_find" class="nav-search-icon-mobile pointer nav-icon-find" onclick="DisplaySearchBar()"></div>
+                    <div id="search_icon_close" class="nav-search-icon-mobile pointer nav-icon-close ishidden" onclick="CloseSearchBar()"></div>
+                    <div class="nav-menu">
+                        <ul>
+                            <li class="link"><a href="#" name="women" class="product-type-link" onclick="RedirectPage('category' ,'women')">女裝</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#" name="men" class="product-type-link" onclick="RedirectPage('category' ,'men')">男裝</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#" name="accessories" class="product-type-link" onclick="RedirectPage('category' ,'accessories')">配件</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-config">
+                        <div class="nav-search">
+                            <input id="search_input_desktop" type="text" class="nav-search-input">
+                            <div id="search_delete_desktop" class="nav-delete-icon pointer ishidden" onclick="ClearInput('search_input_desktop')">&times;</div>
+                            <img type="submit" class="nav-search-icon pointer transition-bigger" src="style/images/search.png" onclick="SearchProduct()">
+                        </div>
+                        <div class="nav-cart pointer transition-bigger" onclick="RedirectPage('cart')">
+                            <span id="shopping_car_counts_desktop" name="cart-counts">1</span>
+                        </div>
+                        <div class="nav-account pointer transition-bigger" onclick="RedirectProfilePage()"></div>
+                    </div>
+                </nav>
+                <div class="nav-mobile-menu">
+                    <ul>
+                        <li class="link"><a href="#" name="women" class="product-type-link" onclick="RedirectPage('category' ,'women')">女裝</a></li>
+                        <li class="separate">|</li>
+                        <li class="link"><a href="#" name="men" class="product-type-link" onclick="RedirectPage('category' ,'men')">男裝</a></li>
+                        <li class="separate">|</li>
+                        <li class="link"><a href="#" name="accessories" class="product-type-link" onclick="RedirectPage('category' ,'accessories')">配件</a></li>
+                    </ul>
+                </div>
+                <div class="nav-mobile-config">
+                    <ul>
+                        <li class="link transition-bigger">
+                            <a href="cart.html" class="nav-cart-mobile">
+                                <img src="style/images/cart-mobile.png" alt="cart"/>
+                                <span id="shopping_car_counts_mobile" name="cart-counts" class="nav-cart-counts-mobile">1</span>
+                                購物車</a>
+                        </li>
+                        <li class="separate">|</li>
+                        <li class="link pointer transition-bigger" onclick="RedirectProfilePage()">
+                            <a href="#">
+                                <img src="style/images/member-mobile.png" alt="member"/>
+                                會員</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="searchbar_mobile" class="nav-search-bar-mobile ishidden">
+                    <input id="search_input_mobile" type="text" class="nav-search-input-mobile">
+                    <input type="submit" class="nav-search-btn-mobile pointer" value="GO" onclick="SearchProduct()">
+                </div>
+                <div class="nav-bottom-line"></div>
+            </header>
+            <main>
+                <div id="introduction" class="introduction-div">
+                </div>
+                <div class="product-div">
+                    <div class="wrapper">
+                        <div id="product_box" class="product-box"></div>
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div class="wrapper footer-style">
+                    <div class="footer-menu">
+                        <ul>
+                            <li class="link"><a href="#">關於 Stylelish</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#">服務條款</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#">隱私政策</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#">聯絡我們</a></li>
+                            <li class="separate">|</li>
+                            <li class="link"><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-icongroup">
+                        <img alt="line-img" src="style/images/line.png">
+                        <img alt="twitter-img" src="style/images/twitter.png">
+                        <img alt="facebook-img" src="style/images/facebook.png">
+                    </div>
+                    <div class="footer-copyright">
+                        <span>&copy; 2019 All rights reserved.</span>
+                    </div>
+                </div>
+            </footer>
+        </form>
+    </body>
+</html>
+<script type="text/javascript" src="js/ElementTool.js"></script>
+<script type="text/javascript" src="js/Common.js"></script>
+<script type="text/javascript" src="js/Index.js"></script>
